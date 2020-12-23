@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hello-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world      
+    spec:
+      containers:      
+      - name: hello-ctr
+        image: nigelpoulton/k8sbook:latest
+        ports:
+        - containerPort: 8080
+
+
